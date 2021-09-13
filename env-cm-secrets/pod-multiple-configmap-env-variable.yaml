@@ -1,0 +1,23 @@
+# Reading two different configmaps and assignging to environment variable in the pod
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: api-test-pod
+spec:
+  containers:
+    - name: test-container1
+      image: k8s.gcr.io/busybox
+      command: ["/bin/sh", "-c", "env"]
+      env:
+        - name: SPECIAL_LEVEL_KEY
+          valueFrom:
+            configMapKeyRef:
+              name: special-config
+              key: special.how
+        - name: LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: log_level
+  restartPolicy: Never

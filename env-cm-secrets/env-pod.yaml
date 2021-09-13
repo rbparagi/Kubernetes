@@ -1,0 +1,19 @@
+# How to use environment variables in the pod-definition file
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: simple-webapp
+spec:
+  containers:
+    - name: simple-webapp
+      image: nginx
+      ports:
+        - containerPort: 8080
+      env:
+        - name: APP_COLOR
+          value: pink
+        - name: APP_TYPE
+          value: webapp-app
+        - name: OWNER
+          value: Ravi

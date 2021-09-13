@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+  name: webapp
+spec:
+  containers:
+  - image: kodekloud/event-simulator
+    name: webapp
+    volumeMounts:
+      - name: log-path
+        mountPath: /log
+  volumes:
+    - name: log-path
+      persistentVolumeClaim:
+        claimName: claim-log-1
+
+
+

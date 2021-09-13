@@ -1,0 +1,14 @@
+apiVersion: certificates.kubernetes.k8s.io/v1betal
+kind: CertificateSigningRequest
+metadata:
+  name: akshay
+spec:
+  groups:
+    - system: authenticated
+  usages:
+    - digital signiture
+    - key encipherent
+    - server auth
+  request:
+
+
