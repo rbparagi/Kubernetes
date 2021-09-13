@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: commands-env-demo
+spec:
+  containers:
+    - name: commands-env-demo
+      image: debian
+      env:
+      - name: MESSAGE
+        value: "HELLO WORD"
+      command: ["/bin/echo"]
+      args: ["$(MESSAGE)"]
+      imagePullPolicy: IfNotPresent

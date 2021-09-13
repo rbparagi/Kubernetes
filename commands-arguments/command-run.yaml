@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: command-run
+spec:
+  containers:
+    - name: command-run
+      image: debian
+      env:
+      - name: MESSAGE
+        value: "HELLO WORD"
+      command: ["/bin/sh"]
+      args: ["-c", "while true; do echo hello; sleep 10;done"]
+      imagePullPolicy: IfNotPresent
